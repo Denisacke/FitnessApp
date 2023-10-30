@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <span
+        class="absolute text-white text-4xl top-5 left-4 cursor-pointer"
+        onclick="openSidebar()">
+      <i class="bi bi-filter-left px-2 bg-gray-900 rounded-md"></i>
+    </span>
+    <div class="flex flex-row fixed top-0 bottom-0 space-x-4">
+        <div th:replace="fragments/sidebar :: sidebarContent"></div>
+<!--   To the right of the sidebar     -->
+        <div th:replace="fragments/home :: rightContent"></div>
+    </div>
+
+
+<script type="text/javascript" th:inline="javascript">
+    // function loadComponents() {
+    //     // Load sidebar component dynamically
+    //     fetch('./sidebar.html')
+    //         .then(response => response.text())
+    //         .then(html => {
+    //             document.getElementById('sidebarContainer').innerHTML = html;
+    //         });
+    //
+    //     // Load right-side content component dynamically
+    //     fetch('right_content.html')
+    //         .then(response => response.text())
+    //         .then(html => {
+    //             document.getElementById('rightContentContainer').innerHTML = html;
+    //         });
+    // }
+    //
+    // loadComponents();
+
+    function dropdown() {
+        document.querySelector("#submenu").classList.toggle("hidden");
+        document.querySelector("#arrow").classList.toggle("rotate-0");
+    }
+    dropdown();
+
+    function openSidebar() {
+        document.querySelector(".sidebar").classList.toggle("hidden");
+    }
+</script>
+</body>
+</html>
